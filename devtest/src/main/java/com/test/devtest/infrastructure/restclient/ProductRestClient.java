@@ -24,7 +24,9 @@ public class ProductRestClient implements ProductClient {
 
     @Override
     public String[] GetSimilarProductsByProductID(String productID) {
+
         final String uri = httpClient.getBASE_URL() + productID + httpClient.getSIMILAR_ID();
+        System.out.println("capa rest..."+ uri);
         return httpClient.webClient().get()
                 .uri(uri)
                 .retrieve()
