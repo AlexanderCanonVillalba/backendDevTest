@@ -1,6 +1,6 @@
 FROM openjdk:17-jdk-alpine
 VOLUME /tmp
-ADD target/devtest-0.0.1-SNAPSHOT.jar java-app.jar
+COPY target/devtest-0.0.1-SNAPSHOT.jar java-app.jar
 EXPOSE 5000
 ENTRYPOINT ["java","-jar","java-app.jar"]
 # For Spring-Boot project, use the entrypoint below to reduce Tomcat startup time.
