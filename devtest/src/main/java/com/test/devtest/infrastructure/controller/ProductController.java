@@ -1,4 +1,4 @@
-package com.test.devtest.controller;
+package com.test.devtest.infrastructure.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
