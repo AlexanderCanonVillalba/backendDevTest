@@ -24,9 +24,7 @@ public class ProductRestClient implements ProductClient {
 
     @Override
     public String[] GetSimilarProductsByProductID(String productID) {
-
         final String uri = httpClient.getBASE_URL() + productID + httpClient.getSIMILAR_ID();
-        System.out.println("capa rest..."+ uri);
         return httpClient.webClient().get()
                 .uri(uri)
                 .retrieve()
@@ -38,7 +36,16 @@ public class ProductRestClient implements ProductClient {
 
     @Override
     public ProductDetail GetProductDetailsByProductID(String productID) {
-        return null;
+
+        final String uri = httpClient.getBASE_URL() + productID;
+
+        return httpClient.webClient().get()
+                .uri(uri)
+                .retrieve()
+                .onStatus(HttpStatusCode::is4xxClientError, this::handleErrors)
+                .bodyToMono(ProductDetail.class)
+                .timeout(Duration.ofSeconds(5L))
+                .block();
     }
 
     private Mono<Throwable> handleErrors(ClientResponse response ){

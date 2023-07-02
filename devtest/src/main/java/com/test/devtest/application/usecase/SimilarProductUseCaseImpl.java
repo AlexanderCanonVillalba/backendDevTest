@@ -28,7 +28,7 @@ public class SimilarProductUseCaseImpl implements SimilarProductUseCase {
         List<ProductDetail> listProducts = new ArrayList<>();
         String[] productsID = this.productClient.GetSimilarProductsByProductID(productId);
         for (String id : productsID) {
-            ProductDetail productDetail= new ProductDetail(id);
+            ProductDetail productDetail= productClient.GetProductDetailsByProductID(id);
             listProducts.add(productDetail);
         }
         return listProducts;
