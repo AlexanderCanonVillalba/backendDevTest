@@ -34,7 +34,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   devtest:
-    image: api-rest:0.0.1
+    image: api-rest:0.0.2
     ports:
       - "5000:5000"
     extra_hosts:
