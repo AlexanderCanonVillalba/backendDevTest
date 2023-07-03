@@ -44,6 +44,7 @@ public class ProductRestClient implements ProductClient {
                     throw new RuntimeException(INTERNAL_SERVER_API_REST_PRODUCT);
                 })
                 .bodyToMono(String[].class)
+                .timeout(Duration.ofSeconds(5L))
                 .block();
     }
 
@@ -60,7 +61,7 @@ public class ProductRestClient implements ProductClient {
                     throw new RuntimeException(INTERNAL_SERVER_API_REST_PRODUCT);
                 })
                 .bodyToMono(ProductDetailDTO.class)
-                .timeout(Duration.ofSeconds(5L))
+                .timeout(Duration.ofSeconds(60L))
                 .block();
 
         return productMapper.DTOToDomain(productsDetailsDTO);
