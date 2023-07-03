@@ -15,16 +15,13 @@ import reactor.netty.http.client.HttpClient;
 
 @Getter
 @Configuration
-public class HttpWebClient {
+public class HttpWebClient{
 
     @Value("${existing-apis.base-url}")
     private String BASE_URL;
 
-    @Value("${existing-apis.similarIds}")
-    private String SIMILAR_ID;
-
     @Bean
-    public WebClient webClient(){
+    public WebClient BuildClient(){
        return WebClient.builder().baseUrl(BASE_URL)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)

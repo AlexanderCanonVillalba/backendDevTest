@@ -35,6 +35,7 @@ public class ProductController {
             List<ProductDetail> productList = similarProductUseCase.Execute(productId);
             return new ResponseEntity<>(productMapper.DomainToResponse(productList), HttpStatus.OK);
         }catch (Exception e){
+            log.error("Exception use case", e.getMessage());
             return new HandlerError().ValidateException(e);
         }
     }

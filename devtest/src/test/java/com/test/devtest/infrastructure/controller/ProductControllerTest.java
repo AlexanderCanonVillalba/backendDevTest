@@ -1,9 +1,7 @@
 package com.test.devtest.infrastructure.controller;
 
-import com.test.devtest.application.usecase.SimilarProductUseCaseImpl;
 import com.test.devtest.domain.entity.ProductDetail;
 import com.test.devtest.domain.exception.NotFoundException;
-import com.test.devtest.domain.port.ProductClient;
 import com.test.devtest.domain.port.SimilarProductUseCase;
 import com.test.devtest.infrastructure.controller.contract.ProductResponse;
 import com.test.devtest.infrastructure.controller.port.ProductMapper;
@@ -12,15 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ProductControllerTest {
