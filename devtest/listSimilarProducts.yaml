@@ -1,0 +1,51 @@
+openapi: 3.0.3
+info:
+  title: Swagger Similar Product - OpenAPI 3.0
+  version: 1.0.11
+servers:
+  - url: https://localhost:5000
+tags:
+  - name: product
+    description: List of products
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /product/{productId}/similar':
+    parameters:
+      - schema:
+          type: string
+        name: productId
+        in: path
+        required: true
+    get:
+      tags:
+        - product
+      summary: List of products
+      description: Get list of similar products
+      operationId: GetSimilarProduct
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetail'
+        '404':
+          description: Product Not found
+components:
+  schemas:
+    ProductDetail:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1
+        name:
+          type: string
+          example: Blazer
+        price:
+          type: integer
+          example: 7
+        availabilty:
+          type: booleanavailability

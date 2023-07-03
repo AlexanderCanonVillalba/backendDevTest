@@ -34,7 +34,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   java-app:
-    image: alexandercavi10/api-rest:1.0.0
+    image: api-rest:1.0.1
     ports:
       - "5000:5000"
     extra_hosts:
