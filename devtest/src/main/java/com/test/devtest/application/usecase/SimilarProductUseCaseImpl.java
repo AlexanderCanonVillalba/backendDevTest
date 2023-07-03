@@ -19,7 +19,7 @@ public class SimilarProductUseCaseImpl implements SimilarProductUseCase {
     @Override
     public List<ProductDetail> Execute(String productId) {
         List<ProductDetail> listProducts = new ArrayList<>();
-        String[] productsID = this.productClient.GetSimilarProductsByProductID(productId);
+        String[] productsID = productClient.GetSimilarProductsByProductID(productId);
         for (String id : productsID) {
             ProductDetail productDetail= productClient.GetProductDetailsByProductID(id);
             listProducts.add(productDetail);
