@@ -34,7 +34,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   java-app:
-    image: api-rest:0.0.5
+    image: api-rest:0.0.6
     ports:
       - "5000:5000"
     extra_hosts:
